@@ -1,79 +1,79 @@
 <!DOCTYPE html>
-<html>
+<html lang="hi">
 <head>
     <meta charset="UTF-8">
     <title>Unicode to Hindi Font Converter</title>
     <style>
         @font-face {
             font-family: 'KrutiDev010';
-            src: url('KrutiDev010.ttf') format('truetype');
+            src: url('https://drive.google.com/uc?export=download&id=1lQ83hi5mrlro1MIjV1ZVkTFnCWtfeXay');
         }
         @font-face {
             font-family: 'DevLys010';
-            src: url('DevLys010.ttf') format('truetype');
+            src: url('https://drive.google.com/uc?export=download&id=19jOC5rmOXOwWMWUQb7VHdNqOeB1Pzgke');
         }
         @font-face {
             font-family: 'Chanakya';
-            src: url('Chanakya.ttf') format('truetype');
+            src: url('https://drive.google.com/uc?export=download&id=1NFHs9Re7v7Yz_HhDjtfdJ5Fm8hlEyPA8');
         }
 
         body {
             font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background: #f0f0f0;
             padding: 20px;
         }
+
         .container {
-            background: #fff;
             max-width: 900px;
             margin: auto;
+            background: #fff;
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 0 15px rgba(0,0,0,0.1);
         }
+
         h1 {
             text-align: center;
-            color: #6C63FF;
+            color: #4b0082;
         }
+
         textarea {
             width: 100%;
             height: 150px;
-            font-size: 20px;
+            font-size: 18px;
             padding: 10px;
             margin: 10px 0;
-            border: 2px solid #6C63FF;
-            border-radius: 10px;
-            resize: vertical;
+            border: 2px solid #4b0082;
+            border-radius: 8px;
         }
+
         select, button {
             font-size: 16px;
             padding: 10px;
-            margin: 10px 5px 20px 0;
+            margin-top: 10px;
+            margin-right: 10px;
         }
+
         .output-box {
             min-height: 150px;
-            white-space: pre-wrap;
             padding: 10px;
-            font-size: 22px;
-            border: 2px dashed #6C63FF;
-            border-radius: 10px;
+            white-space: pre-wrap;
+            margin-top: 20px;
+            border: 2px dashed #4b0082;
+            border-radius: 8px;
+            font-size: 20px;
         }
-        .krutidev {
-            font-family: 'KrutiDev010';
-        }
-        .devlys {
-            font-family: 'DevLys010';
-        }
-        .chanakya {
-            font-family: 'Chanakya';
-        }
+
+        .krutidev { font-family: 'KrutiDev010'; }
+        .devlys { font-family: 'DevLys010'; }
+        .chanakya { font-family: 'Chanakya'; }
     </style>
 </head>
 <body>
 <div class="container">
-    <h1>🔠 यूनिकोड से हिंदी फ़ॉन्ट कन्वर्टर</h1>
-
+    <h1>🔤 यूनिकोड से हिंदी फ़ॉन्ट कन्वर्टर</h1>
     <textarea id="inputText" placeholder="यहाँ यूनिकोड टेक्स्ट पेस्ट करें..."></textarea>
-
+    <br>
     <select id="fontSelect">
         <option value="krutidev">Kruti Dev 010</option>
         <option value="devlys">DevLys 010</option>
@@ -87,24 +87,45 @@
 <script>
     const fontMaps = {
         krutidev: {
-            'अ':'v', 'आ':'vk', 'इ':'b', 'ई':'bZ', 'उ':'m', 'ऊ':'Å', 'ऋ':'_`',
-            'ए':',', 'ऐ':',s', 'ओ':'vks', 'औ':'vkS', 'अं':'vUu', 'अः':'v%',
-            'क':'d', 'ख':'[k', 'ग':'x', 'घ':'?k', 'च':'p', 'छ':'N', 'ज':'t', 'झ':'>',
-            'ट':'V', 'ठ':'B', 'ड':'M', 'ढ':'<', 'ण':'u', 'त':'r', 'थ':'Fk', 'द':'n',
-            'ध':'/', 'न':'u', 'प':'i', 'फ':'Q', 'ब':'c', 'भ':'Hk', 'म':'e', 'य':';',
-            'र':'j', 'ल':'y', 'व':'o', 'श':'"k', 'ष':'"', 'स':'l', 'ह':'g',
-            'ा':'k', 'ि':'f', 'ी':'h', 'ु':'q', 'ू':'w', 'े':'s', 'ै':'S',
-            'ो':'ks', 'ौ':'kS', 'ं':'~', 'ः':'%', 'ँ':'Z'
+            'अ': 'v', 'आ': 'vk', 'इ': 'b', 'ई': 'bZ', 'उ': 'm', 'ऊ': 'Å', 'ऋ': '_`',
+            'ए': ',', 'ऐ': ',s', 'ओ': 'vks', 'औ': 'vkS', 'अं': 'vUu', 'अः': 'v%',
+            'क': 'd', 'ख': '[k', 'ग': 'x', 'घ': '?k', 'ङ': '³',
+            'च': 'p', 'छ': 'N', 'ज': 't', 'झ': '>', 'ञ': '¥',
+            'ट': 'V', 'ठ': 'B', 'ड': 'M', 'ढ': '<', 'ण': '.k',
+            'त': 'r', 'थ': 'Fk', 'द': 'n', 'ध': '/k', 'न': 'u',
+            'प': 'i', 'फ': 'Q', 'ब': 'c', 'भ': 'Hk', 'म': 'e',
+            'य': ';', 'र': 'j', 'ल': 'y', 'व': 'o', 'श': "'k", 'ष': '"k', 'स': 'l', 'ह': 'g',
+            'क्ष': '{k', 'त्र': 'ê', 'ज्ञ': 'Kk',
+            'ा': 'k', 'ि': 'f', 'ी': 'h', 'ु': 'q', 'ू': 'w', 'ृ': '`', 'े': 's', 'ै': 'S',
+            'ो': 'ks', 'ौ': 'kS', 'ं': 'u', 'ः': '%', 'ँ': '~', '्': '', '़': 'Z',
+            '0': '0', '1': '1', '2': '2', '3': '3', '4': '4',
+            '5': '5', '6': '6', '7': '7', '8': '8', '9': '9'
         },
         devlys: {
-            'अ':'v', 'आ':'vk', 'इ':'b', 'ई':'bZ', 'उ':'m', 'ऊ':'Å', 'ऋ':'_`',
-            'ए':',', 'ऐ':',s', 'ओ':'vks', 'औ':'vkS', 'अं':'vUu', 'अः':'v%'
-            // Extend this mapping as needed
+            'अ': 'v', 'आ': 'vk', 'इ': 'b', 'ई': 'bZ', 'उ': 'm', 'ऊ': 'Å', 'ऋ': '_`',
+            'ए': ',', 'ऐ': ',s', 'ओ': 'vks', 'औ': 'vkS', 'अं': 'vUu', 'अः': 'v%',
+            'क': 'd', 'ख': '[k', 'ग': 'x', 'घ': '?k', 'ङ': '³',
+            'च': 'p', 'छ': 'N', 'ज': 't', 'झ': '>', 'ञ': '¥',
+            'ट': 'V', 'ठ': 'B', 'ड': 'M', 'ढ': '<', 'ण': '.k',
+            'त': 'r', 'थ': 'Fk', 'द': 'n', 'ध': '/k', 'न': 'u',
+            'प': 'i', 'फ': 'Q', 'ब': 'c', 'भ': 'Hk', 'म': 'e',
+            'य': ';', 'र': 'j', 'ल': 'y', 'व': 'o', 'श': "'k", 'ष': '"k', 'स': 'l', 'ह': 'g',
+            'क्ष': '{k', 'त्र': 'ê', 'ज्ञ': 'Kk',
+            'ा': 'k', 'ि': 'f', 'ी': 'h', 'ु': 'q', 'ू': 'w', 'ृ': '`', 'े': 's', 'ै': 'S',
+            'ो': 'ks', 'ौ': 'kS', 'ं': 'u', 'ः': '%', 'ँ': '~', '्': '', '़': 'Z',
+            '0': '0', '1': '1', '2': '2', '3': '3', '4': '4',
+            '5': '5', '6': '6', '7': '7', '8': '8', '9': '9'
         },
         chanakya: {
-            'अ':'d', 'आ':'Â', 'इ':'å', 'ई':'ê', 'उ':'ç', 'ऊ':'é', 'ऋ':'è',
-            'ए':'ð', 'ऐ':'ñ', 'ओ':'ò', 'औ':'ó', 'अं':'ô', 'अः':'õ'
-            // Extend this mapping as needed
+            'अ': 'd', 'आ': 'Â', 'इ': 'å', 'ई': 'ê', 'उ': 'ç', 'ऊ': 'é', 'ऋ': 'è',
+            'ए': 'ð', 'ऐ': 'ñ', 'ओ': 'ò', 'औ': 'ó', 'अं': 'ô', 'अः': 'õ',
+            'क': '¨', 'ख': '¸', 'ग': '¹', 'घ': 'º', 'च': '¼', 'छ': '½', 'ज': '¾',
+            'झ': '¿', 'ञ': 'À', 'ट': 'Á', 'ठ': 'Â', 'ड': 'Ã', 'ढ': 'Ä', 'ण': 'Å',
+            'त': 'Æ', 'थ': 'Ç', 'द': 'È', 'ध': 'É', 'न': 'Ê', 'प': 'Ë', 'फ': 'Ì',
+            'ब': 'Í', 'भ': 'Î', 'म': 'Ï', 'य': 'Ð', 'र': 'Ñ', 'ल': 'Ò', 'व': 'Ó',
+            'श': 'Ô', 'ष': 'Õ', 'स': 'Ö', 'ह': '×',
+            'ा': 'Þ', 'ि': 'ß', 'ी': 'à', 'ु': 'á', 'ू': 'â', 'ृ': 'ã',
+            'े': 'ä', 'ै': 'å', 'ो': 'æ', 'ौ': 'ç', 'ं': 'è', 'ः': 'é', 'ँ': 'ê', '्': '', '़': 'ë'
         }
     };
 
@@ -117,7 +138,12 @@
         let result = '';
 
         for (let char of input) {
-            result += map[char] || char;
+            const code = char.charCodeAt(0);
+            if (code >= 0x0900 && code <= 0x097F && map[char]) {
+                result += map[char];
+            } else {
+                result += char;
+            }
         }
 
         output.className = 'output-box ' + font;
