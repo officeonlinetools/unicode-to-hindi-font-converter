@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Unicode to Hindi Font Converter</title>
+    <style>
+        @font-face {
+            font-family: 'KrutiDev010';
+            src: url('KrutiDev010.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'DevLys010';
+            src: url('DevLys010.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'Chanakya';
+            src: url('Chanakya.ttf') format('truetype');
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20px;
+        }
+        .container {
+            background: #fff;
+            max-width: 900px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #6C63FF;
+        }
+        textarea {
+            width: 100%;
+            height: 150px;
+            font-size: 20px;
+            padding: 10px;
+            margin: 10px 0;
+            border: 2px solid #6C63FF;
+            border-radius: 10px;
+            resize: vertical;
+        }
+        select, button {
+            font-size: 16px;
+            padding: 10px;
+            margin: 10px 5px 20px 0;
+        }
+        .output-box {
+            min-height: 150px;
+            white-space: pre-wrap;
+            padding: 10px;
+            font-size: 22px;
+            border: 2px dashed #6C63FF;
+            border-radius: 10px;
+        }
+        .krutidev {
+            font-family: 'KrutiDev010';
+        }
+        .devlys {
+            font-family: 'DevLys010';
+        }
+        .chanakya {
+            font-family: 'Chanakya';
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>🔠 यूनिकोड से हिंदी फ़ॉन्ट कन्वर्टर</h1>
+
+    <textarea id="inputText" placeholder="यहाँ यूनिकोड टेक्स्ट पेस्ट करें..."></textarea>
+
+    <select id="fontSelect">
+        <option value="krutidev">Kruti Dev 010</option>
+        <option value="devlys">DevLys 010</option>
+        <option value="chanakya">Chanakya</option>
+    </select>
+    <button onclick="convertText()">कन्वर्ट करें</button>
+
+    <div id="output" class="output-box krutidev"></div>
+</div>
+
+<script>
+    const fontMaps = {
+        krutidev: {
+            'अ':'v', 'आ':'vk', 'इ':'b', 'ई':'bZ', 'उ':'m', 'ऊ':'Å', 'ऋ':'_`',
+            'ए':',', 'ऐ':',s', 'ओ':'vks', 'औ':'vkS', 'अं':'vUu', 'अः':'v%',
+            'क':'d', 'ख':'[k', 'ग':'x', 'घ':'?k', 'च':'p', 'छ':'N', 'ज':'t', 'झ':'>',
+            'ट':'V', 'ठ':'B', 'ड':'M', 'ढ':'<', 'ण':'u', 'त':'r', 'थ':'Fk', 'द':'n',
+            'ध':'/', 'न':'u', 'प':'i', 'फ':'Q', 'ब':'c', 'भ':'Hk', 'म':'e', 'य':';',
+            'र':'j', 'ल':'y', 'व':'o', 'श':'"k', 'ष':'"', 'स':'l', 'ह':'g',
+            'ा':'k', 'ि':'f', 'ी':'h', 'ु':'q', 'ू':'w', 'े':'s', 'ै':'S',
+            'ो':'ks', 'ौ':'kS', 'ं':'~', 'ः':'%', 'ँ':'Z'
+        },
+        devlys: {
+            'अ':'v', 'आ':'vk', 'इ':'b', 'ई':'bZ', 'उ':'m', 'ऊ':'Å', 'ऋ':'_`',
+            'ए':',', 'ऐ':',s', 'ओ':'vks', 'औ':'vkS', 'अं':'vUu', 'अः':'v%'
+            // Extend this mapping as needed
+        },
+        chanakya: {
+            'अ':'d', 'आ':'Â', 'इ':'å', 'ई':'ê', 'उ':'ç', 'ऊ':'é', 'ऋ':'è',
+            'ए':'ð', 'ऐ':'ñ', 'ओ':'ò', 'औ':'ó', 'अं':'ô', 'अः':'õ'
+            // Extend this mapping as needed
+        }
+    };
+
+    function convertText() {
+        const input = document.getElementById('inputText').value;
+        const font = document.getElementById('fontSelect').value;
+        const output = document.getElementById('output');
+
+        const map = fontMaps[font];
+        let result = '';
+
+        for (let char of input) {
+            result += map[char] || char;
+        }
+
+        output.className = 'output-box ' + font;
+        output.textContent = result;
+    }
+</script>
+</body>
+</html>
